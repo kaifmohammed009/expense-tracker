@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Heading */
+h1 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Filter dropdowns */
+select {
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Total box */
+h3 {
+  background: #e3f2fd;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #0d47a1;
+  margin: 15px 0;
+}
+
+/* Form container */
+form {
+  background: white;
+  padding: 15px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Inputs */
+input {
+  padding: 8px;
+  margin: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 180px;
+}
+
+/* Button */
+button {
+  padding: 9px 15px;
+  margin: 5px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #27ae60;
+}
+
+/* Expense list */
+ul {
+  list-style: none;
+  padding: 0;
+  width: 90%;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* Each expense card */
+li {
+  background: white;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  font-size: 15px;
+}
+
+/* Navbar style (if using Navbar) */
+.navbar {
+  background: linear-gradient(90deg, #2ecc71, #27ae60);
+  color: white;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
