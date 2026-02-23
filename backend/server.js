@@ -3,7 +3,9 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const app = express();
 connectDB();
-app.use(cors({ origin: "https://lucent-mousse-023fec.netlify.app/" cd}));
+app.use(cors({ origin: "https://lucent-mousse-023fec.netlify.app" 
+  , methods: ["GET", "POST", "PUT", "DELETE"]
+}));
 app.use(express.json());
 const expenseRoutes = require("./routes/expenseRoutes");
 app.use("/api/expenses", expenseRoutes);
