@@ -12,7 +12,7 @@ function App() {
   // Fetch expenses
   const fetchExpenses = async () => {
     const res = await axios.get(
-      "http://expense-backend-3-vbox.onrender.com/api/expenses",
+      "https://expense-backend-3-vbox.onrender.com/api/expenses",
     );
     setExpenses(res.data);
   };
