@@ -11,10 +11,8 @@ function App() {
 
   // Fetch expenses
   const fetchExpenses = async () => {
-    const res = await axios.get(
-      "https://expense-backend-3-vbox.onrender.com/api/expenses",
-    );
-    setExpenses(res.data);
+    const res = await axios.get("YOUR_API_URL");
+    setExpenses(Array.isArray(res.data) ? res.data : []);
   };
 
   useEffect(() => {
