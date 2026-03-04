@@ -9,9 +9,9 @@ function App() {
   const [selectedYear, setSelectedYear] = useState("All");
   const [selectedMonth, setSelectedMonth] = useState("All");
 
-  // Fetch expenses
+  // Fetch expenses from backend
   const fetchExpenses = async () => {
-    const res = await axios.get("YOUR_API_URL");
+    const res = await axios.get("http://localhost:5001/api/expenses");
     setExpenses(Array.isArray(res.data) ? res.data : []);
   };
 
@@ -19,7 +19,7 @@ function App() {
     fetchExpenses();
   }, []);
 
-  // Year + Month Filter
+  // Year & Month Filter
   const filteredExpenses = expenses.filter((exp) => {
     const expDate = new Date(exp.date);
 
@@ -34,7 +34,7 @@ function App() {
     return yearMatch && monthMatch;
   });
 
-  // Total based on filter
+  // Total Expense
   const totalExpense = filteredExpenses.reduce(
     (total, exp) => total + Number(exp.amount),
     0,
@@ -45,24 +45,38 @@ function App() {
       <Navbar />
 
       {/* Year Dropdown */}
-      {[
-        ...new Set(expenses.map((exp) => new Date(exp.date).getFullYear())),
-      ].map((year) => (
-        <option key={year} value={year}>
-          {year}
-        </option>
-      ))}
-      {[...new Set(expenses.map((exp) => new Date(exp.date).getMonth()))].map(
-        (month) => (
-          <option key={month} value={month}>
-            {month + 1}
+      <select
+        value={selectedYear}
+        onChange={(e) => setSelectedYear(e.target.value)}
+      >
+        <option value="All">All Years</option>
+        {[
+          ...new Set(expenses.map((exp) => new Date(exp.date).getFullYear())),
+        ].map((year) => (
+          <option key={year} value={year}>
+            {year}
           </option>
-        ),
-      )}
+        ))}
+      </select>
+
+      {/* Month Dropdown */}
+      <select
+        value={selectedMonth}
+        onChange={(e) => setSelectedMonth(e.target.value)}
+      >
+        <option value="All">All Months</option>
+        {[...new Set(expenses.map((exp) => new Date(exp.date).getMonth()))].map(
+          (month) => (
+            <option key={month} value={month}>
+              {month + 1}
+            </option>
+          ),
+        )}
+      </select>
 
       <h3>Total Expense: ₹{totalExpense}</h3>
 
-      {/* Form */}
+      {/* Expense Form */}
       <ExpenseForm fetchExpenses={fetchExpenses} />
 
       {/* Expense List */}

@@ -7,15 +7,12 @@ function ExpenseForm({ fetchExpenses }) {
   const [date, setDate] = useState("");
   const submitHandler = async (e) => {
     e.preventDefault();
-    await axios.post(
-      "http://expense-backend-3-vbox.onrender.com/api/expenses",
-      {
-        title,
-        amount,
-        category,
-        date,
-      },
-    );
+    await axios.post("http://localhost:5001/api/expenses", {
+      title,
+      amount,
+      category,
+      date,
+    });
     setTitle("");
     setAmount("");
     setCategory("");
